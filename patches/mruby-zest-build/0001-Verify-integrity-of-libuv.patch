@@ -1,0 +1,47 @@
+From 77288ff7a42b90a8c745a0a088891a38c9d40655 Mon Sep 17 00:00:00 2001
+From: "taylor.fish" <contact@taylor.fish>
+Date: Tue, 1 Dec 2020 22:55:34 -0800
+Subject: [PATCH] Verify integrity of libuv
+
+---
+ Makefile        | 6 +++---
+ deps/SHA512SUMS | 1 +
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+ create mode 100644 deps/SHA512SUMS
+
+diff --git a/Makefile b/Makefile
+index f3e3be2..26dbcb6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,6 @@
+ UV_DIR    = libuv-v1.9.1
+ UV_FILE   = $(UV_DIR).tar.gz
+-UV_URL    = http://dist.libuv.org/dist/v1.9.1/$(UV_FILE)
++UV_URL    = https://dist.libuv.org/dist/v1.9.1/$(UV_FILE)
+ 	 
+ 
+ all:
+@@ -63,11 +63,11 @@ deps/libuv-win.a:
+ 	cp deps/$(UV_DIR)/.libs/libuv.a deps/libuv-win.a
+ 
+ deps/$(UV_DIR):
+-	cd deps              && wget -4 $(UV_URL) && tar xvf $(UV_FILE)
++	cd deps              && wget -4 $(UV_URL) && sha512sum -c SHA512SUMS && tar xvf $(UV_FILE)
+ setup: deps/$(UV_DIR)
+ 
+ setupwin:
+-	cd deps              && wget -4 $(UV_URL)
++	cd deps              && wget -4 $(UV_URL) && sha512sum -c SHA512SUMS
+ 	cd deps              && tar xvf $(UV_FILE)
+ 
+ push:
+diff --git a/deps/SHA512SUMS b/deps/SHA512SUMS
+new file mode 100644
+index 0000000..555e03e
+--- /dev/null
++++ b/deps/SHA512SUMS
+@@ -0,0 +1 @@
++d243e7b1282d2627cfb6958294d0c29ba51a8ea0bb85a50dafa0d762b8255fe280c6afd310f0898e022e15b2be97c10ac50e2bf140f23d6a49dd1a0a5dd6d546  libuv-v1.9.1.tar.gz
+-- 
+2.29.2
+

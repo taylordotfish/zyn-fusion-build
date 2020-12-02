@@ -18,3 +18,4 @@ a
 *.dll
 pkg/share/info/dir
 test.rb
+/build

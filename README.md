@@ -1,9 +1,4 @@
-These are the build scripts used to generate the Zyn-Fusion packages.
+Forked from <https://github.com/zynaddsubfx/zyn-fusion-build>.
 
-These build scripts (and only these build scripts) are licensed under the
-WTFPL.
-
----
-
-## Building on Linux 
-See [Building on Linux](../../wiki/Building-on-Linux) on repo's wiki.
+All modifications are released under the CC0 Public Domain Dedication; see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
