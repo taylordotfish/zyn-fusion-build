@@ -62,7 +62,7 @@ done
     cd zynaddsubfx
     mkdir -p build
     cd build
-    cmake .. -DGuiModule=zest -DDemoMode=release -DCMAKE_INSTALL_PREFIX=/usr/local
+    cmake .. -DGuiModule=zest -DDemoMode=false -DCMAKE_INSTALL_PREFIX=/usr/local
     make
 )
 
