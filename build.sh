@@ -33,14 +33,14 @@ sha512sum waf-1.7.14/waf | cut -d ' ' -f1 > trusted-wafs
 [ -e zynaddsubfx ] || (
     git clone --depth=1 https://github.com/zynaddsubfx/zynaddsubfx
     cd zynaddsubfx
-    git submodule update --init
+    git submodule update --init --recursive
 )
 
 [ -e mruby-zest-build ] || (
     git clone --depth=1 https://github.com/mruby-zest/mruby-zest-build
     cd mruby-zest-build
     git am ../../patches/mruby-zest-build/*.patch
-    git submodule update --init
+    git submodule update --init --recursive
     cp ../waf-1.7.14/waf deps/pugl/
 )
 
